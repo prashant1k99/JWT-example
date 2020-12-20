@@ -31,10 +31,40 @@ POST http://localhost:3000/auth/token
 Content-Type: application/json
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc2MTc5fQ.tHgzcqShxhPSoinMR1MMYxy_rkTfOjtJeP__EN9Jl2g"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc4NDMzfQ.Ly9aeindH2WP-AVOyXWfteHCDtGJup7WvXJB2GdUfms"
 }
 
 ###
 
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc2MzcxLCJleHAiOjE2MDg0Nzk5NzF9.YZRDatvDnSRocbjL2U5m0cyJuJcZf2QnQeHmd1L2mIg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc4NDMzLCJleHAiOjE2MDg0ODIwMzN9.g2-d7sqTPcCSET_LsHsaU-zHuORdL9CS1h58q8mV53o
+
+###
+
+POST http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc4NDMzLCJleHAiOjE2MDg0ODIwMzN9.g2-d7sqTPcCSET_LsHsaU-zHuORdL9CS1h58q8mV53o
+Content-Type: application/json
+
+{
+  "title": "Some of my funny stories."
+}
+
+###
+
+DELETE http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc4NDMzLCJleHAiOjE2MDg0ODIwMzN9.g2-d7sqTPcCSET_LsHsaU-zHuORdL9CS1h58q8mV53o
+Content-Type: application/json
+
+{
+  "id": 5
+}
+
+###
+
+DELETE http://localhost:3000/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc4NzY3LCJleHAiOjE2MDg0ODIzNjd9.q0PUbKMTzqEwvuVRp7HEBPfRZvQu7sHTitRMMKA0suY
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXNoYW50MWs5IiwibmFtZSI6IlByYXNoYW50IFNpbmdoIiwiaWF0IjoxNjA4NDc4NzY3fQ.vKWven3p0_zoRbYExHNAaqzIpSXDMOcsZ5b9ULjfvdM"
+}
