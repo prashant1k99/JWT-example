@@ -91,8 +91,13 @@ router.post('/login', async (req, res) => {
 // Remove the refresh token from the storage
 router.delete('/logout', validateAuthToken, (req, res) => {
   try {
-    refreshTokens.filter(token => token !== req.body.token)
-    res.status(204).send('Success')
+    refreshTokens.map((token, i) => {
+      if (token === req.body.token) {
+        refreshTokens.splice(i, 1)
+        return
+      }
+    })
+    res.status(200).send('Success')
   } catch (err) {
     res.status(500).send(err)
   }
