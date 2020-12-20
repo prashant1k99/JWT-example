@@ -4,7 +4,7 @@ const JWT = require('jsonwebtoken')
 const ACCESS_SECRET = process.env.ACCESS_TOKEN_SECRET
 
 // Middleware to authenticate token
-function validateAuthToken(req, res, next) {
+const validateAuthToken = (req, res, next) => {
   try {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
