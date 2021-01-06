@@ -6,9 +6,12 @@ const ACCESS_SECRET = process.env.ACCESS_TOKEN_SECRET
 // Middleware to authenticate token
 const validateAuthToken = (req, res, next) => {
   try {
-    const authHeader = req.headers['authorization']
+    const authHeader = req.headers && req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.sendStatus(401)
+    if (!token) {
+      res.status(401)
+      return res.send('No Auth header')
+    }
     // Verify token
     JWT.verify(token, ACCESS_SECRET, (err, user) => {
       if (err) return res.sendStatus(403)
@@ -16,7 +19,8 @@ const validateAuthToken = (req, res, next) => {
       next()
     })
   } catch (err) {
-    res.status(500).send(err)
+    res.status(500)
+    res.send(err)
   }
 }
 

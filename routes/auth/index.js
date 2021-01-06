@@ -74,8 +74,8 @@ router.post('/login', async (req, res) => {
         name: info.name
       }
       // To generate JWT Access Token
-      const accessToken = generateAccessToken(userInfo)
-      const refreshToken = generateRefreshToken(userInfo)
+      const accessToken = await generateAccessToken(userInfo)
+      const refreshToken = await generateRefreshToken(userInfo)
       res.status(200).json({
         accessToken: accessToken,
         refreshToken: refreshToken
