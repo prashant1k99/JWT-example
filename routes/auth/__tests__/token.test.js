@@ -10,7 +10,7 @@ app.use('/auth', authRoute)
 describe('Auth Route Testing : /token', () => {
   describe('POST /token', () => {
     let tokenData 
-    it('Initialize', async () => {
+    it('PreTest Init', async () => {
       await request(app)
         .post('/auth/signup')
         .set('Content-Type', 'application/json')

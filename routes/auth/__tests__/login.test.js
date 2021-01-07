@@ -9,12 +9,15 @@ app.use('/auth', authRoute)
 
 describe('Auth Route Testing : /login', () => {
   describe('POST /login', () => {
-    it('Without Body', async () => {
+    it('PreTest Init', async () => {
       await request(app)
         .post('/auth/signup')
         .set('Content-Type', 'application/json')
         .set('Accept', /json/)
         .send({ name: "Prashant Singh", username: "prashant1k99", password: "test" })
+    })
+    
+    it('Without Body', async () => {
       const res = await request(app)
         .post('/auth/login')
         .send()
