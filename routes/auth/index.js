@@ -30,8 +30,11 @@ router.get('/users', (_, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
+    if (!req.body) {
+      return res.status(400).send('Payload is not provided.')
+    }
     if (users.has(req.body.username)) {
-      res.status(400).send('User with the username already exists.')
+      return res.status(400).send('User with the username already exists.')
     }
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const info = {
