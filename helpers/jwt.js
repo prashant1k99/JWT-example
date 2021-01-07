@@ -26,7 +26,7 @@ const verifyRefreshToken = (token) => {
   return new Promise((resolve, reject) => {
     if (!token) reject('Please provide payload')
     JWT.verify(token, REFRESH_SECRET, async (err, user) => {
-      if (err) reject()
+      if (err) reject(err)
       const accessToken = await generateAccessToken({
         username: user.username,
         name: user.name

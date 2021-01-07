@@ -7,6 +7,10 @@ const ACCESS_SECRET = process.env.ACCESS_TOKEN_SECRET
 const validateAuthToken = (req, res, next) => {
   try {
     const authHeader = req.headers && req.headers['authorization']
+    if (!authHeader) {
+      res.status(401)
+      return res.send('No Auth header')
+    }
     const token = authHeader && authHeader.split(' ')[1]
     if (!token) {
       res.status(401)
